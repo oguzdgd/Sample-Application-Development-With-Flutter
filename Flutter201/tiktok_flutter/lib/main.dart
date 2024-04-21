@@ -7,7 +7,7 @@ Future<void> main() async {
   // When widget load in the app,starts app
   // Widgetler uygulamada hazır olduğunda uygulamayı çalıştır.
   WidgetsFlutterBinding.ensureInitialized();
-  await setUpLocator();
+    await setUpLocator();
 
   // if users want to view horizontal mode, this is not allowed.
   // Bu kod parçası ekranın yalnızca dikey modda görünmesini sağlar.

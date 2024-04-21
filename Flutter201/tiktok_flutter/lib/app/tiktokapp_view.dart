@@ -7,24 +7,33 @@ class TiktokAppView extends StackedView<TiktokAppViewModel> {
   const TiktokAppView({super.key});
 
   @override
+  // stacked is used
   Widget builder(
       BuildContext context, TiktokAppViewModel viewModel, Widget? child) {
     return MaterialApp(
         theme: ThemeConst.light,
         darkTheme: ThemeConst.dark,
-
-        home: SafeArea(
+        themeMode: viewModel.theme,
+        home:  SafeArea(
           child: Scaffold(
-            body: TextButton(
-              onPressed: () {
-                viewModel.changeText();
-              },
-              child: Text(viewModel.text),
+            appBar: AppBar(
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      viewModel.changeTheme();
+                    },
+                    icon: viewModel.theme == ThemeMode.light ? const Icon(Icons.dark_mode) : const Icon(Icons.light_mode),
+                )
+              ],
+            ),
+            body: Center(
+              child: Text("DENEME"),
             ),
           ),
         ));
   }
 
+  // Using Stacked package
   @override
   TiktokAppViewModel viewModelBuilder(BuildContext context) =>
       TiktokAppViewModel();
